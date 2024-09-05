@@ -1,5 +1,45 @@
+import { FC } from 'react';
+import { DeleteIcon } from '../icons/DeleteIcon';
+import { DoneIcon } from '../icons/DoneIcon';
 import './TodoItem.scss';
 
-export const TodoItem = () => {
-	return <li className='todo__item'></li>;
+export interface TodoListItem {
+	id: number;
+	title: string;
+	done: boolean;
+}
+
+export interface TodoItemActions {
+	onItemDelete(id: number): void;
+	onItemToggle(id: number): void;
+}
+
+export interface TodoItemProps extends TodoListItem, TodoItemActions {}
+
+export const TodoItem: FC<TodoItemProps> = ({
+	id,
+	title,
+	done,
+	onItemDelete,
+	onItemToggle,
+}) => {
+	const handleDeleteItem = () => {
+		onItemDelete(id);
+	};
+
+	const handleItemToggle = () => {
+		onItemToggle(id);
+	};
+
+	return (
+		<li className={`${done ? 'todo__item active' : 'todo__item'}`}>
+			{title}
+			<button className='btn todo__check-btn' onClick={handleItemToggle}>
+				<DoneIcon />
+			</button>
+			<button className='btn todo__delete-btn' onClick={handleDeleteItem}>
+				<DeleteIcon />
+			</button>
+		</li>
+	);
 };
