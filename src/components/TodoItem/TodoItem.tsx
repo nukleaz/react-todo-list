@@ -32,8 +32,12 @@ export const TodoItem: FC<TodoItemProps> = ({
 	};
 
 	return (
-		<li className={`${done ? 'todo__item active' : 'todo__item'}`}>
-			{title}
+		<li className='todo__item'>
+			<span
+				className={done ? 'todo__span todo__span_crossed-out' : 'todo__span'}
+			>
+				{title}
+			</span>
 			<button className='btn todo__check-btn' onClick={handleItemToggle}>
 				<DoneIcon />
 			</button>
