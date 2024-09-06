@@ -1,10 +1,16 @@
+import { useEffect } from 'react';
 import './App.scss';
 import { TodoForm } from './components/TodoForm';
 import { TodoList } from './components/TodoList';
 import { useList } from './useList';
+import { saveTodoList } from './utils/storage';
 
 export const App = () => {
 	const { list, addItem, toggleItem, deleteItem } = useList();
+
+	useEffect(() => {
+		saveTodoList(list);
+	}, [list]);
 
 	return (
 		<>
