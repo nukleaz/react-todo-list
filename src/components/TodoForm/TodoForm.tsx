@@ -21,14 +21,20 @@ export const TodoForm: FC<TodoFormProps> = ({ onSubmit }) => {
 	};
 
 	return (
-		<form className='form' onSubmit={handleSubmit}>
-			<input
-				className='form__input'
-				type='text'
-				placeholder='Введите новую задачу'
-				value={value}
-				onChange={handleValue}
-			/>
+		<form className='form todo__form' onSubmit={handleSubmit}>
+			<div className='form__group'>
+				<label htmlFor='input' className='form__label'>
+					Введите новую задачу
+				</label>
+				<input
+					id='input'
+					className='form__input'
+					type='text'
+					placeholder='Введите новую задачу'
+					value={value}
+					onChange={handleValue}
+				/>
+			</div>
 			<button className='form__btn' type='submit'>
 				Добавить
 			</button>

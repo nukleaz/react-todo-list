@@ -1,4 +1,67 @@
-.todo__span_crossed-out {
-	text-decoration: line-through;
-	opacity: 0.7;
+.todo__item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 15px 25px;
+	width: 100%;
+	border-radius: 25px;
+	background: inherit;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+	animation: slide-in 1s;
+	animation-direction: alternate;
+
+	.todo__span {
+		margin-right: 20px;
+		font-size: 1.2rem;
+		color: #fff;
+	}
+
+	.todo__span_crossed-out {
+		text-decoration: line-through;
+		opacity: 0.5;
+	}
+
+	.button-wrappers {
+		display: flex;
+
+		.btn {
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+		}
+
+		.todo__check-btn svg path {
+			stroke: #fff;
+		}
+
+		.todo__delete-btn svg {
+			stroke: #fff;
+		}
+	}
+}
+
+.todo__item_remove {
+	animation: slide-out 1s;
+}
+
+@keyframes slide-in {
+	0% {
+		transform: translateX(-30%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slide-out {
+	0% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	100% {
+		transform: translateX(-30%);
+		opacity: 0;
+	}
 }

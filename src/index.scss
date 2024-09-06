@@ -10,8 +10,9 @@ html {
 	.page {
 		min-width: 320px;
 		font-family: 'font', sans-serif;
+		background: linear-gradient(to left, #23232d, #291a2e);
 
-		.todo {
+		.container {
 			padding: 0 15px;
 			margin: 0 auto;
 			max-width: 1396px;

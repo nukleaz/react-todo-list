@@ -38,12 +38,14 @@ export const TodoItem: FC<TodoItemProps> = ({
 			>
 				{title}
 			</span>
-			<button className='btn todo__check-btn' onClick={handleItemToggle}>
-				<DoneIcon />
-			</button>
-			<button className='btn todo__delete-btn' onClick={handleDeleteItem}>
-				<DeleteIcon />
-			</button>
+			<div className='button-wrappers'>
+				<button className='btn todo__check-btn' onClick={handleItemToggle}>
+					<DoneIcon />
+				</button>
+				<button className='btn todo__delete-btn' onClick={handleDeleteItem}>
+					<DeleteIcon />
+				</button>
+			</div>
 		</li>
 	);
 };
